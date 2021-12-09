@@ -1,0 +1,13 @@
+CHIP z1b{
+
+    // x /\ !y /\ !z
+    // x /\ !(x \/z)
+    IN x, y, z;
+    OUT out;
+    
+    PARTS:
+    Or(a = y, b = z, out = yorz);
+    Not(in = yorz, out = notyOrz);
+    And(a = x, b = notyOrz, out = out);
+
+}

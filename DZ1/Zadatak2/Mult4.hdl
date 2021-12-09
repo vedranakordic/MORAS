@@ -1,0 +1,11 @@
+CHIP Mult4 {
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+
+    // mnozenje s 4 je ustvari shiftanje za 2
+
+    Or16(a = false, b[0..1] = false, b[2..15] = in[0..13], out = out);
+
+}

@@ -49,7 +49,7 @@ def _parse_macro(self, line, p, o):
     naredba = line[1:].split("(")
     if naredba[0] == "MV":
 
-        x =line[5:].split(")")[0]
+        x =line[4:].split(")")[0]
         y= x.split(",") #splitati naredbu po zarezu da dobijemo A i B
 
         A = y[0]

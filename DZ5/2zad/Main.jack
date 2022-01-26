@@ -1,0 +1,51 @@
+class Main
+{
+    function void main()
+    {
+        var Vint vec1, vec2;
+
+        let vec1 = Vint.new(2);
+        let vec2 = Vint.new(2);
+        
+        do vec1.set(0, 1);
+        do vec1.set(1, 2);
+        do vec1.set(2, 3);
+        do vec1.set(3, 4);
+
+        do vec2.set(0, 1);
+        do vec2.set(1, 1);
+        do vec2.set(2, 2);
+        do vec2.set(3, 4);
+
+        do vec1.print();
+        do vec2.print();
+       
+        
+       if(vint.is_eq(vec1, vec2))
+	   {
+	      do Output.printString("true");
+	   } 
+	    else 
+		{
+	      do Output.printString("false");
+	    }
+		
+	    do Output.println();
+
+	   
+	    if(vint.elems(vec1, vec2))
+		{
+	      do Output.printString("true");
+	    } 
+	    else 
+		{
+	      do Output.printString("false");
+	    }
+		
+	    do Output.println();
+	    
+	    return;
+	}
+
+    
+}

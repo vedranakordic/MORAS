@@ -1,0 +1,203 @@
+class Vint{
+	field int size, capacity;
+	field Array polje;
+	
+	constructor Vint new(int a){
+		var int i;
+		if(a < 0){
+			let size = 0;
+			let capacity = 1;
+			let polje = Array.new(capacity);
+		}
+		else{
+			let size = 0;
+			let i = 1;
+			while(i < a){
+				let i = i * 2;
+			}
+			let capacity = i;
+			let polje = Array.new(capacity);
+		}
+		return this;
+	}
+	
+	method void push_back(int n){
+		var Array temp;
+		var int i;
+		let polje[size] = n;
+		let size = size + 1;
+		
+		if(size = capacity){
+			let capacity = capacity * 2;
+			let i = 0;
+			let temp = Array.new(capacity);
+			
+			while(i < size){
+				let temp[i] = polje[i];
+				let i = i + 1;
+			}
+			
+			do polje.dispose();
+			
+			let polje = Array.new(capacity);
+			let i = 0;
+			while(i < size){
+				let polje[i] = temp[i];
+				let i = i + 1;
+			}
+			
+			do temp.dispose();
+		}
+		return;
+	
+	
+	}
+	
+	method void set(int v, int k){
+		let polje[k] = v;
+		return;
+	}
+	
+	method int get(int n){
+		return polje[n];
+	}
+	
+	
+	method int len(){
+		return capacity;
+	}
+	method int size(){
+		return size;
+	}
+	
+	method void resize(int m){
+		var Array temp;
+		var int i;
+		let i = 1;
+		while(m > 0){
+			let i = i * 2;
+			let m = m - 1;
+		}
+		if(i < size){
+			let size = i;
+			let capacity = i*2;
+		}
+		else{
+			let capacity = i;
+		}
+		let temp = Array.new(i);
+		let i = 0;
+		while(i < size){
+			let temp[i] = polje[i];
+			let i = i + 1;
+		}
+		
+		do polje.dispose();
+		let polje = Array.new(capacity);
+		let i = 0;
+		while(i < size){
+			let polje[i] = temp[i];
+			let i = i + 1;
+		}
+		do temp.dispose();
+	
+		return;
+	}
+	
+	method Array getArr()
+	{
+		return polje;
+	}
+	
+	 function bool is_eq(Vint a, Vint b)
+    {
+        var int i, c, d;
+        var Array C, D;
+
+        let c = a.len();
+        let d = b.len();
+        let C = a.getArr();
+        let D = b.getArr();
+
+        if (~(c = d))
+        {
+            return false;
+        }
+
+        while (i < c)
+        {
+            if (~(C[i] = D[i]))
+            {
+                return false;
+            }
+            let i = i + 1;
+        }
+        
+        do C.dispose();
+        do D.dispose();
+		
+        return true;
+    }
+
+    function bool elems(Vint a, Vint b)
+    {
+        var int i, j, c, d;
+        var Array C, D;
+        var bool odg;
+
+        let c = a.len();
+        let d = b.len();
+        let C = a.getArr();
+        let D = b.getArr();
+        let odg = false;
+
+        if (~(c = d))
+        {
+            return false;
+        }
+
+        while (i < c)
+        {
+            while (j < c)
+            {
+                if (C[i] = D[j])
+                {
+                    let odg = true;
+                }
+                let j = j + 1;
+            }
+
+            if (~(odg))
+            {
+                return false;
+            }
+
+            let odg = false;
+            let i = i + 1;
+            let j = 0;
+        }
+
+        do C.dispose();
+        do D.dispose();
+
+        return true;
+
+    }
+	
+	method void print(){
+		var int i;
+		var strint s;
+		let i = 0;
+		
+		while(i < size){
+			do Output.printInt(polje[i]);
+			do Output.printString(" ");
+			let i = i + 1;
+		}
+		
+		do Output.printChar(String.newLine());
+		
+		return;
+	}
+
+}
